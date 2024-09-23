@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
     
 {% block titulo %}
-Ciudades
+Productos
 {% endblock %}
 
 {% block contenido %}
 <div class="container mt-4">
-    <h3>Listar Ciudades</h3>
+    <h3>Listar Productos</h3>
 
     <!-- Boton agregar -->
     <div class="row mb-2">
       <div class="col col-md-4">
-        <a href="/referenciales/ciudad/ciudad-agregar" class="btn btn-primary">Agregar</a>
+        <a href="/referenciales/ciudad/producto-agregar" class="btn btn-primary">Agregar</a>
       </div>
     </div>
     <!--  -->
@@ -24,14 +24,16 @@ Ciudades
             <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th>Descripción</th>
+                    <th>Nombre</th>
+                    <th>Costo</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {% for item in lista_ciudades %}
+                  {% for item in lista_productos %}
                   <tr>
-                    <td>{{ item['descripcion'] }}</td>
+                    <td>{{ item['nombre'] }}</td>
+                    <td>{{ item['costo'] }}</td>
                     <td>
                       <div class="row">
                         <div class="col col-md-2">

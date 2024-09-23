@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Formulario Agregar
+{% endblock %}
+
+{% block contenido %}
+<form action="/action_page.php">
+    <div class="form-group">
+        <label for="nombre">Fabricante nombre:</label>
+        <input type="text" class="form-control" placeholder="Escribe el nombre del Fabricante" id="nombre">
+    </div>
+    <div class="form-group">
+        <label for="ruc">Ruc:</label>
+        <input type="text" class="form-control" placeholder="Ingresa el ruc del Fabricante" id="ruc">
+    </div>
+    <div class="form-group">
+        <label for="direccion">Dirección:</label>
+        <input type="text" class="form-control" placeholder="Ingresa la dirección del Fabricante" id="direccion">
+    </div>
+    <div class="form-group">  
+        <label for="telefono">Teléfono:</label>  
+        <input type="text" class="form-control" placeholder="Ingrese el teléfono del Fabricante" id="telefono" maxlength="12" pattern="\d{4}-\d{3}-\d{3}" title="Formato: 0123-456-789" onchange="this.value = formatTelefono(this.value)">  
+        <small class="form-text text-muted">Formato: 0123-456-789 (máximo 12 caracteres)</small>  
+    </div>  
+    
+    <script>  
+    function formatTelefono(telefono) {  
+        // Eliminar caracteres no numéricos  
+        telefono = telefono.replace(/\D/g, '');  
+    
+        // Limitar a 9 dígitos y formatear  
+        const partes = [];  
+        if (telefono.length <= 4) partes.push(telefono);  
+        else if (telefono.length <= 7) partes.push(telefono.slice(0, 4), telefono.slice(4));  
+        else partes.push(telefono.slice(0, 4), telefono.slice(4, 7), telefono.slice(7, 10));  
+        
+        return partes.join('-');  
+    }  
+    </script>
+    <div class="form-group form-check">
+        <label class="form-check-label">
+            <input class="form-check-input" type="checkbox"> Remember me
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
