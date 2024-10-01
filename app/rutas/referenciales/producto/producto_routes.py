@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template
 from app.dao.referenciales.producto.ProductoDao import ProductoDao
+
 ciumod = Blueprint('producto', __name__, template_folder='templates')
 
 

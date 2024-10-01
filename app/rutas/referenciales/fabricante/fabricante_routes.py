@@ -3,7 +3,7 @@ from app.dao.referenciales.fabricante.FabricanteDao import FabricanteDao
 
 ciumod = Blueprint('fabricante', __name__, template_folder='templates')
 
-
+ 
 @ciumod.route('/fabricante-index')
 def fabricanteIndex():
     fabrdao = FabricanteDao()
